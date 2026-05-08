@@ -1,0 +1,274 @@
+Normal input ranges:
+  steering_cmd: [-0.524,  0.524] rad  =  [-30.0,  30.0] deg
+  side_wind_speed: [-20.0,  20.0] m/s
+  side_wind_speed_op:  10.0 m/s
+
+Transfer functions from steering command and side wind speed to y_rig and yaw:
+
+lateral_tf =
+ 
+  From input "steering_cmd" to output...
+           -16.9 s^2 + 1.441e-12 s + 2.731e04
+   y_rig:  ----------------------------------
+              s^4 + 61.56 s^3 + 873.4 s^2
+ 
+              69.04 s + 2731
+   yaw:  -------------------------
+         s^3 + 61.56 s^2 + 873.4 s
+ 
+  From input "side_wind_speed" to output...
+           0.03041 s^2 + 0.5983 s + 2.89
+   y_rig:  -----------------------------
+            s^4 + 61.56 s^3 + 873.4 s^2
+ 
+                   0.289
+   yaw:  -------------------------
+         s^3 + 61.56 s^2 + 873.4 s
+ 
+Continuous-time transfer function.
+Model Properties
+Transfer function: y_rig / steering_cmd
+
+G_y_steer_tf =
+ 
+  From input "steering_cmd" to output "y_rig":
+  -16.9 s^2 + 1.441e-12 s + 2.731e04
+  ----------------------------------
+     s^4 + 61.56 s^3 + 873.4 s^2
+ 
+Continuous-time transfer function.
+Model Properties
+Transfer function: yaw / steering_cmd
+
+G_yaw_steer_tf =
+ 
+  From input "steering_cmd" to output "yaw":
+       69.04 s + 2731
+  -------------------------
+  s^3 + 61.56 s^2 + 873.4 s
+ 
+Continuous-time transfer function.
+Model Properties
+Transfer function: y_rig / side_wind_speed
+
+G_y_wind_tf =
+ 
+  From input "side_wind_speed" to output "y_rig":
+  0.03041 s^2 + 0.5983 s + 2.89
+  -----------------------------
+   s^4 + 61.56 s^3 + 873.4 s^2
+ 
+Continuous-time transfer function.
+Model Properties
+Transfer function: yaw / side_wind_speed
+
+G_yaw_wind_tf =
+ 
+  From input "side_wind_speed" to output "yaw":
+            0.289
+  -------------------------
+  s^3 + 61.56 s^2 + 873.4 s
+ 
+Continuous-time transfer function.
+Model Properties
+Zeros: y_rig / steering_cmd
+  -40.1967
+   40.1967
+
+Zeros: yaw / steering_cmd
+  -39.5613
+         0
+
+Zeros: y_rig / side_wind_speed
+   -8.5181
+  -11.1575
+
+Zeros: yaw / side_wind_speed
+     0
+
+Poles: full lateral system
+         0
+         0
+  -22.1741
+  -39.3899
+
+Poles: y_rig / steering_cmd
+         0
+         0
+  -22.1741
+  -39.3899
+
+Poles: yaw / steering_cmd
+         0
+  -22.1741
+  -39.3899
+         0
+
+Poles: y_rig / side_wind_speed
+         0
+         0
+  -22.1741
+  -39.3899
+
+Poles: yaw / side_wind_speed
+         0
+  -22.1741
+  -39.3899
+         0
+
+Warning: The following block outputs are not used:
+vy_cg,yaw_rate,e_yaw1. 
+> In DynamicSystem/connect (line 268)
+In matlab (line 250) 
+Generalized plant inputs:
+    {'r_y'               }
+    {'r_yaw'             }
+    {'n_y'               }
+    {'n_yaw'             }
+    {'side_wind_speed_in'}
+    {'steering_cmd_in'   }
+
+Generalized plant outputs:
+    {'e_y1'}
+    {'e_y' }
+
+hinfsyn performance outputs z:
+    {'e_y1'}
+
+hinfsyn measured outputs y to controller:
+    {'e_y'}
+
+hinfsyn exogenous inputs w:
+    {'r_y'               }
+    {'r_yaw'             }
+    {'n_y'               }
+    {'n_yaw'             }
+    {'side_wind_speed_in'}
+
+hinfsyn control inputs u from controller:
+    {'steering_cmd_in'}
+
+H-infinity gamma = 0.4641
+Nominal closed-loop inputs without measurement noise:
+    {'r_y'            }
+    {'r_yaw'          }
+    {'side_wind_speed'}
+
+Nominal closed-loop outputs without measurement noise:
+    {'y_rig'   }
+    {'yaw'     }
+    {'vy_cg'   }
+    {'yaw_rate'}
+    {'e_y'     }
+    {'e_yaw'   }
+
+Nominal augmented lateral system with noise inputs [external; control]:
+    {'r_y'            }
+    {'r_yaw'          }
+    {'n_y'            }
+    {'n_yaw'          }
+    {'side_wind_speed'}
+    {'steering_cmd'   }
+
+Nominal augmented lateral system with noise outputs [analysis; controller measurement]:
+    {'y_rig'       }
+    {'yaw'         }
+    {'vy_cg'       }
+    {'yaw_rate'    }
+    {'e_y'         }
+    {'e_yaw'       }
+    {'y_rig_ns'    }
+    {'yaw_ns'      }
+    {'e_y_feedback'}
+
+Nominal closed-loop inputs with measurement noise:
+    {'r_y'            }
+    {'r_yaw'          }
+    {'n_y'            }
+    {'n_yaw'          }
+    {'side_wind_speed'}
+
+Nominal closed-loop outputs with measurement noise:
+    {'y_rig'   }
+    {'yaw'     }
+    {'vy_cg'   }
+    {'yaw_rate'}
+    {'e_y'     }
+    {'e_yaw'   }
+    {'y_rig_ns'}
+    {'yaw_ns'  }
+
+No Side Wind:
+  side_wind_speed range = [0, 0] m/s
+  first nonzero side_wind_speed time = NaN s
+Side Wind Steps with Zero Reference:
+  side_wind_speed range = [0, 8] m/s
+  first nonzero side_wind_speed time = 5 s
+Warning: The following block outputs are not used:
+vy_cg,yaw_rate,e_yaw1. 
+> In DynamicSystem/connect (line 268)
+In matlab (line 500) 
+Physical closed-loop robust stability margin bounds = [0.2129, 0.2133]
+Robust performance margin bounds for gamma = 1 = [0.1320, 0.1323]
+Warning: The input signal is undersampled. Use a sampling
+period smaller than 4.9e-04. 
+> In DynamicSystem.checkLsimInputs (line 123)
+In DynamicSystem/lsim (line 72)
+In matlab (line 600) 
+Warning: The input signal is undersampled. Use a sampling
+period smaller than 9.8e-04. 
+> In DynamicSystem.checkLsimInputs (line 123)
+In DynamicSystem/lsim (line 72)
+In matlab (line 600) 
+Warning: The input signal is undersampled. Use a sampling
+period smaller than 9.8e-04. 
+> In DynamicSystem.checkLsimInputs (line 123)
+In DynamicSystem/lsim (line 72)
+In matlab (line 600) 
+Warning: The input signal is undersampled. Use a sampling
+period smaller than 2.0e-03. 
+> In DynamicSystem.checkLsimInputs (line 123)
+In DynamicSystem/lsim (line 72)
+In matlab (line 600) 
+Warning: The input signal is undersampled. Use a sampling
+period smaller than 2.0e-03. 
+> In DynamicSystem.checkLsimInputs (line 123)
+In DynamicSystem/lsim (line 72)
+In matlab (line 600) 
+Warning: The input signal is undersampled. Use a sampling
+period smaller than 2.0e-03. 
+> In DynamicSystem.checkLsimInputs (line 123)
+In DynamicSystem/lsim (line 72)
+In matlab (line 600) 
+Warning: The input signal is undersampled. Use a sampling
+period smaller than 9.8e-04. 
+> In DynamicSystem.checkLsimInputs (line 123)
+In DynamicSystem/lsim (line 72)
+In matlab (line 600) 
+Warning: The input signal is undersampled. Use a sampling
+period smaller than 9.8e-04. 
+> In DynamicSystem.checkLsimInputs (line 123)
+In DynamicSystem/lsim (line 72)
+In matlab (line 600) 
+
+
+D-K ITERATION SUMMARY:
+-----------------------------------------------------------------
+                       Robust performance               Fit order
+-----------------------------------------------------------------
+  Iter         K Step       Peak MU       D Fit             D
+    1       2.695e+06        6.358        6.423            46
+    2           1.638        1.504        1.514            20
+    3           1.205        1.205        1.212            26
+    4           1.097        1.097          1.1            28
+    5           1.063        1.063        1.065            30
+    6            1.05        1.049        1.051            32
+    7           1.038        1.036        1.038            32
+    8           1.034        1.033        1.037            32
+    9           1.026        1.026        1.026            32
+
+Best achieved robust performance: 1.03
+
+Mu synthesis robust performance = 1.0258
+Mu nominal physical closed-loop stable = 1
+>> 
