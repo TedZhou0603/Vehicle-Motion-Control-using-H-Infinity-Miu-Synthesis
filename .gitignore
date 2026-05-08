@@ -5,3 +5,4 @@
 *.out
 *.fls
 *.fdb_latexmk
+report/
